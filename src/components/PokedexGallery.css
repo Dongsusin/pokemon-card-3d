@@ -1,0 +1,293 @@
+:root {
+  --bg: #0f1724;
+  --card: #ffffff;
+  --muted: #9aa4b2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: linear-gradient(180deg, #071124 0%, #0f1724 100%);
+  font-family: Inter, Roboto, system-ui;
+  color: var(--card);
+  min-height: 100vh;
+}
+
+.pg-wrap {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 24px auto;
+}
+
+.pg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.pg-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+/* 카드: 위로 띄우는 transform 제거, 대신 glow만 적용 */
+.pg-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.35s ease, transform 0.18s ease;
+  transform-style: preserve-3d;
+}
+.pg-card:hover {
+  transform: none;
+} /* 위로 띄우는 효과 제거 */
+
+.pg-image {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 타입별 hover glow (작은 카드) */
+.pg-card.fire:hover {
+  box-shadow: 0 10px 30px rgba(255, 80, 50, 0.45),
+    0 0 40px rgba(255, 80, 50, 0.25);
+}
+.pg-card.water:hover {
+  box-shadow: 0 10px 30px rgba(50, 150, 255, 0.45),
+    0 0 40px rgba(50, 150, 255, 0.25);
+}
+.pg-card.grass:hover {
+  box-shadow: 0 10px 30px rgba(60, 200, 120, 0.45),
+    0 0 40px rgba(60, 200, 120, 0.25);
+}
+.pg-card.lightning:hover {
+  box-shadow: 0 10px 30px rgba(255, 230, 50, 0.55),
+    0 0 50px rgba(255, 230, 50, 0.35);
+}
+.pg-card.psychic:hover {
+  box-shadow: 0 10px 30px rgba(190, 60, 255, 0.55),
+    0 0 50px rgba(190, 60, 255, 0.35);
+}
+.pg-card.fighting:hover {
+  box-shadow: 0 10px 30px rgba(200, 120, 50, 0.55),
+    0 0 50px rgba(200, 120, 50, 0.35);
+}
+.pg-card.darkness:hover {
+  box-shadow: 0 10px 30px rgba(9, 4, 170, 0.7), 0 0 50px rgba(9, 4, 170, 0.35);
+}
+.pg-card.metal:hover {
+  box-shadow: 0 10px 30px rgba(180, 180, 200, 0.7),
+    0 0 50px rgba(180, 180, 200, 0.45);
+}
+.pg-card.fairy:hover {
+  box-shadow: 0 10px 30px rgba(255, 150, 200, 0.65),
+    0 0 50px rgba(255, 150, 200, 0.45);
+}
+.pg-card.dragon:hover {
+  box-shadow: 0 10px 30px rgba(250, 180, 50, 0.65),
+    0 0 50px rgba(250, 180, 50, 0.45);
+}
+.pg-card.colorless:hover {
+  box-shadow: 0 10px 30px rgba(200, 200, 200, 0.5),
+    0 0 40px rgba(200, 200, 200, 0.3);
+}
+
+/* 기본 텍스트/메타 */
+.pg-name {
+  margin-top: 10px;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: var(--card);
+}
+.pg-set {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.pg-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.pg-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--card);
+  cursor: pointer;
+}
+.pg-btn[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* 오버레이 & 모달 (확대) */
+.pg-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.6),
+    rgba(2, 6, 23, 0.85)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.pg-modal {
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: 0 30px 80px rgba(2, 6, 23, 0.7);
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 닫기 버튼을 더 눈에 띄게 */
+.pg-close {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.15s, box-shadow 0.2s;
+  z-index: 1000;
+}
+.pg-close:hover {
+  background: rgba(255, 59, 59, 0.95);
+  transform: scale(1.08);
+  box-shadow: 0 4px 18px rgba(255, 59, 59, 0.55);
+}
+
+/* 확대 컨테이너 (타입 클래스가 붙음) */
+.pg-expanded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* 내부: 흰 배경 제거 */
+.pg-expanded-inner {
+  background: transparent;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.03);
+  transition: box-shadow 0.35s ease;
+}
+
+/* 이미지 크기 */
+.pg-expanded-inner img {
+  width: 360px;
+  object-fit: contain;
+}
+
+.pg-expanded.fire .pg-expanded-inner,
+.pg-expanded.water .pg-expanded-inner,
+.pg-expanded.grass .pg-expanded-inner,
+.pg-expanded.lightning .pg-expanded-inner,
+.pg-expanded.psychic .pg-expanded-inner,
+.pg-expanded.fighting .pg-expanded-inner,
+.pg-expanded.darkness .pg-expanded-inner,
+.pg-expanded.metal .pg-expanded-inner,
+.pg-expanded.fairy .pg-expanded-inner,
+.pg-expanded.dragon .pg-expanded-inner,
+.pg-expanded.colorless .pg-expanded-inner {
+  animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.04), 0 0 40px var(--glow);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.06), 0 0 90px var(--glow);
+  }
+}
+
+/* 메타 정보 (확대시) */
+.pg-meta {
+  margin-top: 8px;
+  text-align: center;
+  color: #fff;
+}
+.pg-meta-title {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.pg-meta-set {
+  color: #ddd;
+  margin-top: 6px;
+}
+
+/* 반응형 */
+@media (max-width: 1000px) {
+  .pg-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pg-image {
+    height: 180px;
+  }
+  .pg-expanded-inner img {
+    width: 260px;
+    height: 260px;
+  }
+}
+@media (max-width: 600px) {
+  .pg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pg-wrap {
+    padding: 12px;
+  }
+  .pg-expanded {
+    width: 92%;
+    height: 78%;
+  }
+}
