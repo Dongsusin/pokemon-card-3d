@@ -266,6 +266,28 @@ body {
   margin-top: 6px;
 }
 
+.pokeball-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.pokeball-loader img {
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* 반응형 */
 @media (max-width: 1000px) {
   .pg-grid {

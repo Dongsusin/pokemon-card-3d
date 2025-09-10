@@ -11,7 +11,6 @@ type PokemonCard = {
   set: {
     name: string;
   };
-  // API에 types 배열이 있음(예: ["Fire"], ["Water"] 등). 없을 수도 있으니 optional로 둠
   types?: string[];
 };
 
@@ -39,7 +38,6 @@ export default function PokedexGallery() {
       });
       if (!res.ok) throw new Error("Failed to fetch cards");
       const data = await res.json();
-      // API 반환 구조에 따라 data.data 가 카드 배열입니다.
       setCache((prev) => ({ ...prev, [pageNum]: data.data }));
       if (total === null) setTotal(data.totalCount);
       return data.data;
@@ -60,7 +58,6 @@ export default function PokedexGallery() {
     return () => controller.abort();
   }, [page, API_KEY]);
 
-  // ESC로 모달 닫기
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelected(null);
@@ -69,7 +66,6 @@ export default function PokedexGallery() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // 모달 3D 효과 (마우스 무브)
   useEffect(() => {
     const el = modalRef.current;
     if (!el) return;
@@ -126,11 +122,12 @@ export default function PokedexGallery() {
       </div>
 
       {loading ? (
-        <div>로딩 중...</div>
+        <div className="pokeball-loader">
+          <img src="/pokeball.jpg" alt="loading-pokeball" />
+        </div>
       ) : (
         <div className="pg-grid">
           {cards.map((card) => {
-            // types가 있으면 첫 타입을 소문자로 클래스에 추가 (예: "fire", "water", "grass")
             const typeClass =
               card.types && card.types[0] ? card.types[0].toLowerCase() : "";
             return (
@@ -159,7 +156,6 @@ export default function PokedexGallery() {
               ✕
             </button>
 
-            {/* 확대 영역에 선택된 카드의 타입 클래스를 붙여서 타입별 glow 적용 */}
             <div
               className={`pg-expanded ${
                 selected.types && selected.types[0]
