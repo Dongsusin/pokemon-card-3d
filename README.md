@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# <h1 align="left"><img src="/public/icon.webp" alt="Project Icon" width="40" style="vertical-align:middle;"> Pokémon Card 3D</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="./public/main.png" alt="프로젝트 스크린샷" width="600">
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+React + Three.js로 구현한 <b>포켓몬 카드 3D 뷰어</b>  
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="https://github.com/Dongsusin/pokemon-card-3d/stargazers"><img src="https://img.shields.io/github/stars/Dongsusin/pokemon-card-3d?style=flat&logo=github&color=yellow" alt="stars"/></a>
+  <a href="https://github.com/Dongsusin/pokemon-card-3d/issues"><img src="https://img.shields.io/github/issues/Dongsusin/pokemon-card-3d?style=flat&logo=github&color=orange" alt="issues"/></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license"/></a>
+</p>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ 특징 (Features)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **3D 카드 렌더링** – Three.js/React Three Fiber를 활용한 입체적 카드 표현
+- **반응형 UI** – 데스크톱·모바일에서 부드러운 인터랙션
+- **React + Vite** – 빠른 개발 환경과 HMR
+- **컴포넌트 구조화** – 유지보수성과 확장성 강화
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 데모 (Demo)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> **배포 사이트**: [(https://poke-card-3d.netlify.app/)]
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🛠️ 기술 스택 (Tech Stack)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" />
+  <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white" />
+</p>
+
+---
+
+## 📦 설치 및 실행 (Installation & Usage)
+
+```bash
+# 저장소 클론
+git clone https://github.com/Dongsusin/pokemon-card-3d.git
+
+# 디렉토리 이동
+cd pokemon-card-3d
+
+# 패키지 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
 ```
