@@ -8,12 +8,6 @@
 React + Three.js로 구현한 <b>포켓몬 카드 3D 뷰어</b>  
 </p>
 
-<p align="center">
-  <a href="https://github.com/Dongsusin/pokemon-card-3d/stargazers"><img src="https://img.shields.io/github/stars/Dongsusin/pokemon-card-3d?style=flat&logo=github&color=yellow" alt="stars"/></a>
-  <a href="https://github.com/Dongsusin/pokemon-card-3d/issues"><img src="https://img.shields.io/github/issues/Dongsusin/pokemon-card-3d?style=flat&logo=github&color=orange" alt="issues"/></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license"/></a>
-</p>
-
 ---
 
 ## ✨ 특징 (Features)
