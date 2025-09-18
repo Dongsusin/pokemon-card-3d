@@ -1,7 +1,7 @@
 # <h1 align="left"><img src="/public/icon.webp" alt="Project Icon" width="40" style="vertical-align:middle;"> Pokémon Card 3D</h1>
 
 <p align="center">
-  <img src="./public/main.png" alt="프로젝트 스크린샷" width="600">
+  <img src="/public/main.png" alt="프로젝트 스크린샷" width="600">
 </p>
 
 <p align="center">
